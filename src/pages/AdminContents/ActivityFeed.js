@@ -1,17 +1,20 @@
 import React from 'react';
-import { Paper, Typography, Divider } from '@mui/material';
-import AccessTimeIcon from '@mui/icons-material/AccessTime';
+import ActivitiesCountPerProject from './ActivitiesCountPerProject';
+import ActivityCountByHandler from './ActivityCountByHandler';
+import ActivityFeed from './ActivityFeed'; // Assuming this component is already set up
+import ActivityTimelineForProject from './ActivityTimelineForProject';
 
-const ActivityFeed = ({ activityFeed }) => {
+const AnalyticsPage = () => {
+  const projectId = 1; 
+  
   return (
-    <Paper elevation={3} sx={{ p: 2 }}>
-      <Typography variant="h6"><AccessTimeIcon fontSize="small" /> Activity Feed</Typography>
-      <Divider sx={{ my: 1 }} />
-      {activityFeed.map((item, idx) => (
-        <Typography key={idx} variant="body2" sx={{ mb: 1 }}>• {item}</Typography>
-      ))}
-    </Paper>
+    <div>
+      <ActivitiesCountPerProject />
+      <ActivityCountByHandler />
+      <ActivityFeed limit={5} />
+      <ActivityTimelineForProject projectId={projectId} />
+    </div>
   );
 };
 
-export default ActivityFeed;
+export default AnalyticsPage;
