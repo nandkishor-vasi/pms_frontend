@@ -4,7 +4,6 @@ import { useParams } from "react-router-dom";
 import Sidebar from "../pages/AdminContents/Sidebar";
 import Metrics from "../pages/AdminContents/Metrics";
 import ProjectSummary from "../pages/AdminContents/ProjectSummary";
-import ActivityFeed from "../pages/AdminContents/ActivityFeed";
 import UserInfoCard from "../pages/AdminContents/UserInfoCard";
 import {
   CssBaseline,
@@ -16,6 +15,7 @@ import {
   Box,
   CircularProgress
 } from "@mui/material";
+import Navbar from "../components/Navbar";
 
 const drawerWidth = 240;
 
@@ -54,14 +54,17 @@ const AdminDashboard = () => {
 
   return (
     <Box sx={{ display: 'flex' }}>
+      
       <CssBaseline />
       <AppBar position="fixed" sx={{ zIndex: 1201 }}>
-        <Toolbar>
-          <Typography variant="h6" noWrap component="div">
-            Admin Dashboard
-          </Typography>
-        </Toolbar>
-      </AppBar>
+      <Toolbar sx={{ justifyContent: 'space-between' }}>
+      <Typography variant="h6" noWrap>
+          Admin Dashboard
+        </Typography>
+        <Navbar />
+        
+      </Toolbar>
+    </AppBar>
 
       <Sidebar adminId={adminId} />
 

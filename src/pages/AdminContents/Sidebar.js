@@ -3,7 +3,6 @@ import { Drawer, List, ListItem, ListItemIcon, ListItemText, Toolbar, Box } from
 import { Link, useParams } from 'react-router-dom'; // <-- Import Link
 import DashboardIcon from '@mui/icons-material/Dashboard';
 import FolderIcon from '@mui/icons-material/Folder';
-import PeopleIcon from '@mui/icons-material/People';
 import AssessmentIcon from '@mui/icons-material/Assessment';
 
 
@@ -32,12 +31,12 @@ const Sidebar = ( {adminId}) => {
 
           <ListItem button component={Link} to={`/admin/${adminId}/reports`}>
             <ListItemIcon><AssessmentIcon /></ListItemIcon>
-            <ListItemText primary="Reports" />
+            <ListItemText primary="Analytics" />
           </ListItem>
 
-          <ListItem button component={Link} to={`/admin/${adminId}/profile`}>
-            <ListItemIcon><AssessmentIcon /></ListItemIcon>
-            <ListItemText primary="Profile" />
+          <ListItem button component={Link} to={`/admin/${adminId}/activity`}>
+            <ListItemIcon><DashboardIcon /></ListItemIcon>
+            <ListItemText primary="Activity" />
           </ListItem>
           
         </List>

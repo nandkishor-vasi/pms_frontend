@@ -11,44 +11,9 @@ import ProtectedRoute from './components/ProtectedRoute';
 import AdminDashboard from './pages/AdminDashboard';
 import MemberDashboard from './pages/MemberDashboard';
 import ProjectSummary from './pages/AdminContents/ProjectSummary';
-import ActivityFeed from './pages/AdminContents/ActivityFeed';
-import Profile from './pages/AdminContents/Profile';
-
-
-const sampleDevices = [
-  {
-    id: 1,
-    name: "MacBook Pro 2019",
-    type: "laptop",
-    condition: "excellent",
-    description: "Lightly used laptop with 16GB RAM",
-    status: "available",
-    image: "https://images.unsplash.com/photo-1517336714731-489689fd1ca8"
-  },
-  {
-    id: 2,
-    name: "iPad Air 4th Gen",
-    type: "tablet",
-    condition: "good",
-    description: "Perfect for online classes",
-    status: "reserved",
-    image: "https://images.unsplash.com/photo-1588702547923-7093a6c3ba33"
-  }
-];
-
-const stats = {
-  devicesDonated: 1420,
-  beneficiaries: 980,
-  eWasteReduced: 35
-};
-
+import AnalyticsFeed from './pages/AdminContents/AnalyticsFeed';
+import ActivityPage from './pages/ActivityPage';
 function App() {
-  const [devices, setDevices] = useState([]);
-  const [stats, setStats] = useState({
-    devicesDonated: 0,
-    beneficiaries: 0,
-    eWasteReduced: 0
-  });
 
 
 
@@ -57,7 +22,7 @@ function App() {
       <Router>
         <Navbar />
         <Routes>
-          <Route path="/" element={<Home stats={stats} devices={sampleDevices} />} />
+          <Route path="/" element={<Home />} />
           <Route path='/about' element={<About />} />
           <Route path='/contact' element={<Contact />} />
           <Route path="/auth" element={<AuthPage />} />
@@ -68,8 +33,9 @@ function App() {
             <Route path="/memberDashboard/:memberId" element={<MemberDashboard />} />
           </Route>
           <Route path="/admin/:adminId/projects" element={<ProjectSummary />} />
-          <Route path="/admin/:adminId/reports" element={<ActivityFeed />} /> 
-          <Route path="/admin/:adminId/profile" element={<Profile />} /> 
+          <Route path="/admin/:adminId/reports" element={<AnalyticsFeed />} /> 
+          <Route path="/admin/:adminId/activity" element={<ActivityPage />} /> 
+          
         </Routes>
       </Router>
     </AuthProvider>

@@ -34,7 +34,6 @@ const Navbar = () => {
 
           {isLoggedIn && id && (
             <>
-              <Link to="/leaderboard" className="nav-link">Leaderboard</Link>
 
               {/* Dynamic Dashboard link based on user role */}
               <Link 
@@ -44,12 +43,6 @@ const Navbar = () => {
                 Dashboard
               </Link>
 
-              <Link 
-                to={userRole === "admin" ? `/admin/profile/${id}` : `/member/profile/${id}`} 
-                className="nav-link"
-              >
-                Profile
-              </Link>
             </>
           )}
 
