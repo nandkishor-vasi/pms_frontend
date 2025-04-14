@@ -10,6 +10,9 @@ import { AuthProvider } from './context/AuthContext';
 import ProtectedRoute from './components/ProtectedRoute';
 import AdminDashboard from './pages/AdminDashboard';
 import MemberDashboard from './pages/MemberDashboard';
+import ProjectSummary from './pages/AdminContents/ProjectSummary';
+import ActivityFeed from './pages/AdminContents/ActivityFeed';
+import Profile from './pages/AdminContents/Profile';
 
 
 const sampleDevices = [
@@ -64,6 +67,9 @@ function App() {
           <Route element={<ProtectedRoute allowedRoles={["MEMBER"]} />}>
             <Route path="/memberDashboard/:memberId" element={<MemberDashboard />} />
           </Route>
+          <Route path="/admin/:adminId/projects" element={<ProjectSummary />} />
+          <Route path="/admin/:adminId/reports" element={<ActivityFeed />} /> 
+          <Route path="/admin/:adminId/profile" element={<Profile />} /> 
         </Routes>
       </Router>
     </AuthProvider>
